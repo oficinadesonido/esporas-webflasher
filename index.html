@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Esporas — Web Flasher</title>
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -10%, #2a1d44, #0e0b16 60%);
+      color: #ece8f4; display: flex; align-items: center; justify-content: center; padding: 24px;
+    }
+    .card {
+      width: 100%; max-width: 560px; background: #181326; border: 1px solid #312849;
+      border-radius: 16px; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+    h1 { margin: 0 0 4px; font-size: 1.6rem; }
+    .sub { color: #9b8bb1; margin: 0 0 24px; font-size: .95rem; }
+    .badge { display:inline-block; background:#241c40; color:#c79aff; border:1px solid #3c2c5e;
+      border-radius: 999px; padding: 3px 12px; font-size: .8rem; margin-bottom: 20px; }
+    ol { line-height: 1.6; color: #ccc4dd; padding-left: 20px; }
+    .flash { margin: 26px 0 8px; display: flex; justify-content: center; }
+    esp-web-install-button { --esp-tools-button-color:#0e0b16; --esp-tools-button-text-color:#fff; }
+    .btn-fallback { font-size:.85rem; color:#9b8bb1; text-align:center; margin-top:8px; }
+    a { color: #b47fff; }
+    .foot { margin-top: 26px; padding-top: 18px; border-top: 1px solid #312849;
+      font-size: .82rem; color: #7c6f98; }
+    code { background:#0e0b16; padding:2px 6px; border-radius:6px; color:#d5cbec; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>🍄 Esporas</h1>
+    <p class="sub">Web Flasher — actualiza la placa desde el navegador, sin instalar nada.</p>
+    <span class="badge" id="ver">hito 1 · esqueleto generativo</span>
+
+    <ol>
+      <li>Usa <b>Chrome</b> o <b>Edge</b> en una computadora (no funciona en móvil/Safari).</li>
+      <li>Conecta la placa por USB.</li>
+      <li>Pulsa <b>Instalar / Flash</b> y elige el puerto serie de la placa.</li>
+      <li>Espera a que termine y la placa se reinicia sola. ✅</li>
+    </ol>
+
+    <div class="flash">
+      <esp-web-install-button manifest="./manifest.json">
+        <button slot="activate">⚡ Instalar / Flash</button>
+        <span slot="unsupported">⚠️ Tu navegador no soporta WebSerial. Usa Chrome o Edge de escritorio.</span>
+        <span slot="not-allowed">⛔ Necesitas abrir esta página por HTTPS.</span>
+      </esp-web-install-button>
+    </div>
+    <p class="btn-fallback">¿No aparece el puerto? Mantén <b>BOOT</b>, pulsa <b>RESET</b>, suelta BOOT, y reintenta. Prueba otro cable USB.</p>
+
+    <div class="foot">
+      Placa: ESP32-S3 (placa azul odesEucli1) · AMY + PCM5102A.<br>
+      Sintetizador generativo Esporas — drone + 2 esporas euclidianas (escala KURD).
+    </div>
+  </main>
+</body>
+</html>
